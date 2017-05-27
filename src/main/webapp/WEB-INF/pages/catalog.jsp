@@ -28,7 +28,8 @@
                 <td>${product.id}</td>
                 <td><a href="<c:url value='/product_data/${product.id}' />" target="_self">${product.name}</a></td>
                 <td><a href="<c:url value='/company_info/${product.producer.id}'/>" target="_self">${product.producer.name}</a></td>
-                <td>${product.price/100}${product.price%100}</td>
+                <%--<td>${product.price/100}${product.price%100}</td>--%>
+                <td>${product.price}</td>
                 <td>${product.description}</td>
             </tr>
         </c:forEach>

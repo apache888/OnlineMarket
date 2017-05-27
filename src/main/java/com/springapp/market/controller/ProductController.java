@@ -49,12 +49,12 @@ public class ProductController {
         return "products";
     }
 
-    @RequestMapping(value = "products/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/save_product", method = RequestMethod.GET)
     public ModelAndView addProduct(@ModelAttribute("product") Product product, BindingResult result) {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("products", this.productService.listProducts());
-        model.put("categories", this.companyService.listCompanies());
-        return new ModelAndView("products/add", model);
+        model.put("listProducts", this.productService.listProducts());
+        model.put("listCompanies", this.companyService.listCompanies());
+        return new ModelAndView("redirect:/save_product", "command", model);
     }
 
     @RequestMapping(value = "/save_product", method = RequestMethod.POST)
@@ -66,7 +66,6 @@ public class ProductController {
     @RequestMapping("/remove_product/{id}")
     public String removeProduct(@PathVariable("id") int id) {
         this.productService.removeProduct(id);
-
         return "redirect:/products";
     }
 
@@ -75,14 +74,12 @@ public class ProductController {
         model.addAttribute("product", this.productService.getProductById(id));
         model.addAttribute("listProducts", this.productService.listProducts());
         model.addAttribute("listCompanies", this.companyService.listCompanies());
-
         return "products";
     }
 
     @RequestMapping("product_data/{id}")
     public String productData(@PathVariable("id") int id, Model model) {
         model.addAttribute("product", this.productService.getProductById(id));
-
         return "product_data";
     }
 

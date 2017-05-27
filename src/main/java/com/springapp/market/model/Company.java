@@ -26,8 +26,8 @@ public class Company {
     @Column(name = "address")
     private String address;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "producer")
-    Set<Product> products;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "producer")
+    private Set<Product> products;
 
     public Company() {
     }

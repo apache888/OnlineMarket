@@ -20,10 +20,10 @@
     <form:form method="POST" modelAttribute="userForm" class="form-signin">
         <h2 class="form-signin-heading">Create your account</h2>
         <spring:bind path="username">
-            <%--<div class="form-group ${status.error ? 'has-error' : ''}">--%>
+            <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="text" path="username" class="form-control" placeholder="Username"
                             autofocus="true"/>
-                <%--<form:errors path="username"/>--%>
+                <form:errors path="username"/>
             </div>
         </spring:bind>
 

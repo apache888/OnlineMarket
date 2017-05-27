@@ -30,7 +30,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     public void addCompany(Company company) {
         companyDao.saveAndFlush(company);
     }
@@ -39,12 +39,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Transactional
     public void removeCompany(long id) {
         companyDao.delete(id);
-    }
-
-    @Override
-    @Transactional
-    public void updateCompany(Company company) {
-        companyDao.saveAndFlush(company);
     }
 
     @Override

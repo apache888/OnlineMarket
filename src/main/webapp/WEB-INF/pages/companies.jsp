@@ -20,6 +20,7 @@
             <th width="80">ID</th>
             <th width="120">Company Name</th>
             <th width="120">Company Info</th>
+            <th width="120">Company Address</th>
             <th width="60">Edit</th>
             <th width="60">Delete</th>
         </tr>
@@ -29,6 +30,7 @@
                 <td><a href="<c:url value='/company_info/${company.id}' />"
                        target="_self">${company.name}</a></td>
                 <td>${company.description}</td>
+                <td>${company.address}</td>
                 <td><a href="<c:url value='/edit_company/${company.id}' />">Edit</a></td>
                 <td><a href="<c:url value='/remove_company/${company.id}' />">Delete</a></td>
             </tr>
@@ -40,7 +42,7 @@
 
 <c:url var="addCompanyAction" value="/save_company"/>
 
-<form:form action="${addCompanyAction}" modelAttribute="company">
+<form:form action="${addCompanyAction}"  modelAttribute="company">
     <table>
         <c:if test="${!empty company.name}">
             <tr>

@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created on 25.05.2017
  *
@@ -32,16 +35,15 @@ public class CompanyController {
     public String listCompanies(Model model) {
         model.addAttribute("company", new Company());
         model.addAttribute("listCompanies", this.companyService.listCompanies());
-
         return "companies";
     }
 
-//    @RequestMapping(value = "companies/add", method = RequestMethod.GET)
-//    public ModelAndView addCompany(@ModelAttribute("company") Company company, BindingResult result) {
-//        Map<String, Object> model = new HashMap<String, Object>();
-//        model.put("companies", companyService.listCompanies());
-//        return new ModelAndView("redirect:/companies", model);
-//    }
+    @RequestMapping(value = "/save_company", method = RequestMethod.GET)
+    public ModelAndView addCompany(@ModelAttribute("company") Company company, BindingResult result) {
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("listCompanies", companyService.listCompanies());
+        return new ModelAndView("redirect:/save_company", "command", model);
+    }
 
     @RequestMapping(value = "/save_company", method = RequestMethod.POST)
     public ModelAndView saveCompany(@ModelAttribute("company") Company company, BindingResult result) {
@@ -52,22 +54,19 @@ public class CompanyController {
     @RequestMapping("/remove_company/{id}")
     public String removeCompany(@PathVariable("id") int id) {
         this.companyService.removeCompany(id);
-
         return "redirect:/companies";
     }
 
-    @RequestMapping("/edit_company/{id}")
+    @RequestMapping("edit_company/{id}")
     public String editProduct(@PathVariable("id") int id, Model model) {
         model.addAttribute("company", this.companyService.getCompanyById(id));
         model.addAttribute("listCompanies", this.companyService.listCompanies());
-
         return "companies";
     }
 
-    @RequestMapping("/company_info/{id}")
+    @RequestMapping("company_info/{id}")
     public String companyInfo(@PathVariable("id") int id, Model model) {
         model.addAttribute("company", this.companyService.getCompanyById(id));
-
         return "company_info";
     }
 }

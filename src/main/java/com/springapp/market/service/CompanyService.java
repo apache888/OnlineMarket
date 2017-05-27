@@ -18,8 +18,6 @@ public interface CompanyService {
 
     void removeCompany(long id);
 
-    void updateCompany(Company company);
-
     List<Company> listCompanies();
 
 }

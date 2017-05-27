@@ -20,8 +20,9 @@
     </tr>
     <tr>
         <td>${company.id}</td>
-        <td><a href="<c:url value='/company_info/${company.id}' />"
-               target="_self">${company.name}</a></td>
+        <td>${company.name}</td>
+        <%--<td><a href="<c:url value='/company_info/${company.id}' />"--%>
+               <%--target="_self">${company.name}</a></td>--%>
         <td>${company.description}</td>
         <td>${company.address}</td>
     </tr>

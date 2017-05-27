@@ -37,12 +37,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public void updateProduct(Product product) {
-        productDao.saveAndFlush(product);
-    }
-
-    @Override
-    @Transactional
     public void removeProduct(long id) {
         productDao.delete(id);
     }

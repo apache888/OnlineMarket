@@ -7,6 +7,7 @@
 
     <context:component-scan base-package="com.springapp.market"/>
     <!--<mvc:resources mapping="/resources/**" location="/resources/" />-->
+    <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/" />
     <mvc:annotation-driven />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -17,7 +18,7 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <value>classpath:validation</value>
+                <value>validation</value>
             </list>
         </property>
     </bean>
