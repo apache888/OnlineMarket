@@ -5,8 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
-
 /**
  * Created on 25.05.2017
  *
@@ -18,7 +16,7 @@ public interface CompanyDao extends JpaRepository<Company, Long> {
     @Query("select c from Company c join fetch c.products where c.id = :id")
     Company getOne(@Param("id") Long id);
 
-    @Override
-    @Query("select c from Company c join fetch c.products")
-    List<Company> findAll();
+//    @Override
+//    @Query("select c from Company c join fetch c.products")
+//    List<Company> findAll();
 }

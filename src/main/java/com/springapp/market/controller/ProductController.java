@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created on 25.05.2017
  *
@@ -49,13 +46,13 @@ public class ProductController {
         return "products";
     }
 
-    @RequestMapping(value = "/save_product", method = RequestMethod.GET)
-    public ModelAndView addProduct(@ModelAttribute("product") Product product, BindingResult result) {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("listProducts", this.productService.listProducts());
-        model.put("listCompanies", this.companyService.listCompanies());
-        return new ModelAndView("redirect:/save_product", "command", model);
-    }
+//    @RequestMapping(value = "/save_product", method = RequestMethod.GET)
+//    public ModelAndView addProduct(@ModelAttribute("product") Product product, BindingResult result) {
+//        Map<String, Object> model = new HashMap<String, Object>();
+//        model.put("listProducts", this.productService.listProducts());
+//        model.put("listCompanies", this.companyService.listCompanies());
+//        return new ModelAndView("redirect:/save_product", "command", model);
+//    }
 
     @RequestMapping(value = "/save_product", method = RequestMethod.POST)
     public ModelAndView saveProduct(@ModelAttribute("product") Product product, BindingResult result) {

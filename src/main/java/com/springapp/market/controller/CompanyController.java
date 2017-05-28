@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created on 25.05.2017
  *
@@ -38,12 +35,12 @@ public class CompanyController {
         return "companies";
     }
 
-    @RequestMapping(value = "/save_company", method = RequestMethod.GET)
-    public ModelAndView addCompany(@ModelAttribute("company") Company company, BindingResult result) {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("listCompanies", companyService.listCompanies());
-        return new ModelAndView("redirect:/save_company", "command", model);
-    }
+//    @RequestMapping(value = "companies/add", method = RequestMethod.GET)
+//    public ModelAndView addCompany(@ModelAttribute("company") Company company, BindingResult result) {
+//        Map<String, Object> model = new HashMap<String, Object>();
+//        model.put("listCompanies", companyService.listCompanies());
+//        return new ModelAndView("redirect:/save_company", "company", model);
+//    }
 
     @RequestMapping(value = "/save_company", method = RequestMethod.POST)
     public ModelAndView saveCompany(@ModelAttribute("company") Company company, BindingResult result) {

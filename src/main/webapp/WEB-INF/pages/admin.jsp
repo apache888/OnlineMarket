@@ -14,16 +14,19 @@
     <title>Admin</title>
 </head>
 <body>
-<h2>Welcome</h2>
+<h1>Welcome</h1>
 
 <h3>Choose page</h3>
 <br />
-<a href="<c:url value="/companies"/>">Companies</a>
+<h3><a href="<c:url value="/companies"/>">Companies</a></h3>
+<br />
+<h3><a href="<c:url value="/products"/>">Products</a></h3>
 <br />
 <br />
-<a href="<c:url value="/products"/>">Products</a>
+<a href="<c:url value="/welcome"/>">Back to Welcome page</a>
 <br />
 <br />
+<hr/>
 <div class="container">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="post" action="${contextPath}/logout">

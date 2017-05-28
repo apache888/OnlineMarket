@@ -26,7 +26,8 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="company_id", nullable=false)
     private Company producer;
 
