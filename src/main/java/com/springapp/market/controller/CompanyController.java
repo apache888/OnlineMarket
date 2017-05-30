@@ -49,21 +49,27 @@ public class CompanyController {
     }
 
     @RequestMapping("/remove_company/{id}")
-    public String removeCompany(@PathVariable("id") int id) {
+    public String removeCompany(@PathVariable("id") long id) {
         this.companyService.removeCompany(id);
         return "redirect:/companies";
     }
 
     @RequestMapping("edit_company/{id}")
-    public String editProduct(@PathVariable("id") int id, Model model) {
+    public String editProduct(@PathVariable("id") long id, Model model) {
         model.addAttribute("company", this.companyService.getCompanyById(id));
         model.addAttribute("listCompanies", this.companyService.listCompanies());
         return "companies";
     }
 
     @RequestMapping("company_info/{id}")
-    public String companyInfo(@PathVariable("id") int id, Model model) {
+    public String companyInfo(@PathVariable("id") long id, Model model) {
         model.addAttribute("company", this.companyService.getCompanyById(id));
         return "company_info";
+    }
+    @RequestMapping("company_info/{id}/all")
+    public String allProducts(@PathVariable("id") long id, Model model) {
+        model.addAttribute("company", this.companyService.getCompanyById(id));
+        model.addAttribute("allProducts", companyService.getProductsByCompanyId(id));
+        return "/company_info";
     }
 }

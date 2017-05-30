@@ -56,13 +56,39 @@
         <th width="120">Company Name</th>
         <th width="120">Company Info</th>
         <th width="120">Company Address</th>
+        <th width="120">All Products</th>
     </tr>
     <tr>
         <td>${company.id}</td>
         <td>${company.name}</td>
         <td>${company.description}</td>
         <td>${company.address}</td>
+        <td><a href="<c:url value='/company_info/${company.id}/all' />">Product List</a></td>
     </tr>
 </table>
+<br />
+<br />
+<br />
+<c:if test="${!empty allProducts}">
+    <table class="tg">
+        <caption>Product List</caption>
+        <tr>
+            <th width="80">ID</th>
+            <th width="120">Product name</th>
+            <th width="120">Producer</th>
+            <th width="120">Price</th>
+            <th width="120">Description</th>
+        </tr>
+        <c:forEach items="${allProducts}" var="product">
+            <tr>
+                <td>${product.id}</td>
+                <td><a href="<c:url value='/product_data/${product.id}' />" target="_self">${product.name}</a></td>
+                <td>${product.producer.name}</td>
+                <td>${product.price}</td>
+                <td>${product.description}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</c:if>
 </body>
 </html>

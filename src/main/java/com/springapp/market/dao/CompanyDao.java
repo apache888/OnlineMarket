@@ -16,7 +16,4 @@ public interface CompanyDao extends JpaRepository<Company, Long> {
     @Query("select c from Company c join fetch c.products where c.id = :id")
     Company getOne(@Param("id") Long id);
 
-//    @Override
-//    @Query("select c from Company c join fetch c.products")
-//    List<Company> findAll();
 }

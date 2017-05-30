@@ -1,7 +1,9 @@
 package com.springapp.market.service;
 
 import com.springapp.market.dao.CompanyDao;
+import com.springapp.market.dao.ProductDao;
 import com.springapp.market.model.Company;
+import com.springapp.market.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -22,6 +24,9 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     private CompanyDao companyDao;
+
+    @Autowired
+    private ProductDao productDao;
 
     @Override
     @Transactional
@@ -44,5 +49,10 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<Company> listCompanies() {
         return companyDao.findAll();
+    }
+
+    @Override
+    public List<Product> getProductsByCompanyId(long id) {
+        return productDao.getProductsByCompanyId(id);
     }
 }
