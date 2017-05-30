@@ -152,6 +152,13 @@
                   <target>${java.version}</target>
               </configuration>
           </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+              <configuration>
+                  <outputDirectory>${basedir}/war/</outputDirectory>
+              </configuration>
+          </plugin>
       </plugins>
   </build>
 </project>
