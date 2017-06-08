@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%--<%@ page session="false" %>--%>
+<%@ page session="false" %>
 
 <html>
 <head>
@@ -114,6 +114,9 @@
             <td>
                 <form:input path="name"/>
             </td>
+            <td>
+                <form:errors path="name"/>
+            </td>
         </tr>
         <tr>
             <td>
@@ -124,6 +127,9 @@
             <td>
                 <form:input path="description"/>
             </td>
+            <td>
+                <form:errors path="description"/>
+            </td>
         </tr>
         <tr>
             <td>
@@ -133,6 +139,9 @@
             </td>
             <td>
                 <form:input path="address"/>
+            </td>
+            <td>
+                <form:errors path="address"/>
             </td>
         </tr>
         <tr>

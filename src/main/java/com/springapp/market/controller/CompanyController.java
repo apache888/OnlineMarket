@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 /**
  * Created on 25.05.2017
  *
@@ -43,7 +45,10 @@ public class CompanyController {
 //    }
 
     @RequestMapping(value = "/save_company", method = RequestMethod.POST)
-    public ModelAndView saveCompany(@ModelAttribute("company") Company company, BindingResult result) {
+    public ModelAndView saveCompany(@ModelAttribute("company") @Valid Company company, BindingResult result) {
+        if (result.hasErrors()) {
+            return new ModelAndView("redirect:/companies");
+        }
         this.companyService.addCompany(company);
         return new ModelAndView("redirect:/companies");
     }

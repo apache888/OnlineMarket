@@ -1,5 +1,7 @@
 package com.springapp.market.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -18,12 +20,15 @@ public class Company {
     private Long id;
 
     @Column(name = "name")
+    @NotEmpty
     private String name;
 
     @Column(name = "description")
+    @NotEmpty
     private String description;
 
     @Column(name = "address")
+    @NotEmpty
     private String address;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "producer")
