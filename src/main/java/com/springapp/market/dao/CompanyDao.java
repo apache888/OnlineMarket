@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 public interface CompanyDao extends JpaRepository<Company, Long> {
 
     @Override
-    @Query("select c from Company c join fetch c.products where c.id = :id")
+    @Query("select c from Company c left join fetch c.products where c.id = :id")
     Company getOne(@Param("id") Long id);
 
 }

@@ -37,13 +37,6 @@ public class CompanyController {
         return "companies";
     }
 
-//    @RequestMapping(value = "companies/add", method = RequestMethod.GET)
-//    public ModelAndView addCompany(@ModelAttribute("company") Company company, BindingResult result) {
-//        Map<String, Object> model = new HashMap<String, Object>();
-//        model.put("listCompanies", companyService.listCompanies());
-//        return new ModelAndView("redirect:/save_company", "company", model);
-//    }
-
     @RequestMapping(value = "/save_company", method = RequestMethod.POST)
     public ModelAndView saveCompany(@ModelAttribute("company") @Valid Company company, BindingResult result) {
         if (result.hasErrors()) {
@@ -66,12 +59,12 @@ public class CompanyController {
         return "companies";
     }
 
-    @RequestMapping("company_info/{id}")
+    @RequestMapping(value="company_info/{id}")
     public String companyInfo(@PathVariable("id") long id, Model model) {
         model.addAttribute("company", this.companyService.getCompanyById(id));
         return "company_info";
     }
-    @RequestMapping("company_info/{id}/all")
+    @RequestMapping(value="company_info/{id}/all")
     public String allProducts(@PathVariable("id") long id, Model model) {
         model.addAttribute("company", this.companyService.getCompanyById(id));
         model.addAttribute("allProducts", companyService.getProductsByCompanyId(id));
