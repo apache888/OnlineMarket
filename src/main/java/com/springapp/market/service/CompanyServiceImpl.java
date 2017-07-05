@@ -35,7 +35,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void addCompany(Company company) {
         companyDao.saveAndFlush(company);
     }
