@@ -7,6 +7,7 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <global-method-security authentication-manager-ref="authenticationManager" pre-post-annotations="enabled"/>
     <http auto-config="true">
         <intercept-url pattern="/welcome" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <intercept-url pattern="/catalog" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>

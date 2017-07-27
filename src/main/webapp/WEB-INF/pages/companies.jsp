@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="" >
+    <%--<meta name="description" content="">--%>
+    <%--<meta name="author" content="" >--%>
 
     <title>Companies</title>
 
@@ -91,7 +91,7 @@
 
 <c:url var="addCompanyAction" value="/save_company"/>
 
-<form:form action="${addCompanyAction}"  commandName="company" method="post">
+<form:form action="${addCompanyAction}" commandName="company" method="post" acceptCharset="utf-8">
     <table>
         <c:if test="${!empty company.name}">
             <tr>
@@ -101,7 +101,7 @@
                     </form:label>
                 </td>
                 <td>
-                    <form:input path="id" readonly="true" size="8" disabled="true"/>
+                    <form:input path="id" readonly="true" size="8" disabled="false"/>
                     <%--<form:hidden path="id"/>--%>
                 </td>
             </tr>
